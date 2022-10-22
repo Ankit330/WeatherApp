@@ -21,6 +21,7 @@ class homeScreen extends StatefulWidget {
 class _homeScreenState extends State<homeScreen> {
   final GlobalController globalController =
       Get.put(GlobalController(), permanent: true);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
