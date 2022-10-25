@@ -25,7 +25,7 @@ class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue[50],
         body: SafeArea(
           child: Obx(
             () => globalController.checkLoading().isTrue

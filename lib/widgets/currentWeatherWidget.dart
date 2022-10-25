@@ -13,6 +13,7 @@ class CurrentWeatherWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         temperatureAreaWidget(),
         const SizedBox(height: 30),
@@ -32,7 +33,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                  color: CustomColor.cardColor,
+                  color: CustomColor.dividerLine.withAlpha(250),
                   borderRadius: BorderRadius.circular(15)),
               child: Image.asset("assets/icons/windspeed.png"),
             ),
@@ -41,7 +42,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                  color: CustomColor.cardColor,
+                  color: CustomColor.dividerLine.withAlpha(250),
                   borderRadius: BorderRadius.circular(15)),
               child: Image.asset("assets/icons/cloud.png"),
             ),
@@ -50,7 +51,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                  color: CustomColor.cardColor,
+                  color: CustomColor.dividerLine.withAlpha(250),
                   borderRadius: BorderRadius.circular(15)),
               child: Image.asset("assets/icons/humidity.png"),
             ),
@@ -100,10 +101,13 @@ class CurrentWeatherWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Image.asset(
-          "assets/weather/${weatherDataCurrent.current.weather![0].icon}.png",
-          height: 80,
-          width: 80,
+        Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: Image.asset(
+            "assets/weather/${weatherDataCurrent.current.weather![0].icon}.png",
+            height: 80,
+            width: 80,
+          ),
         ),
         Container(
           height: 50,
@@ -124,7 +128,7 @@ class CurrentWeatherWidget extends StatelessWidget {
                   style: const TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w400,
-                      fontSize: 20)),
+                      fontSize: 15)),
             ],
           ),
         )

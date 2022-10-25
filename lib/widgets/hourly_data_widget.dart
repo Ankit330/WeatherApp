@@ -33,8 +33,8 @@ class HourlyDataWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: weatherDataHourly.hourly.length > 12
-            ? 12
+        itemCount: weatherDataHourly.hourly.length > 24
+            ? 24
             : weatherDataHourly.hourly.length,
         itemBuilder: (context, index) {
           return Obx(((() => GestureDetector(
