@@ -25,45 +25,65 @@ class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.blue,
         body: SafeArea(
-      child: Obx(
-        () => globalController.checkLoading().isTrue
-            ? Center(
-                child: Image.asset(
-                  'assets/icons/clouds.png',
-                  height: 200,
-                  width: 200,
-                ),
-              )
-            : Center(
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    const SizedBox(height: 20),
-                    const HeaderWidget(),
-                    CurrentWeatherWidget(
-                        weatherDataCurrent:
-                            globalController.getData().getCurrentWeather()),
-                    HourlyDataWidget(
-                      weatherDataHourly:
-                          globalController.getData().getHourlyWeather(),
+          child: Obx(
+            () => globalController.checkLoading().isTrue
+                ? Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/icons/clouds.png',
+                          height: 130,
+                          width: 130,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: const Text(
+                                'Fetching Data...',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            const CircularProgressIndicator()
+                          ],
+                        ),
+                      ],
                     ),
-                    DailyDataForecast(
-                      weatherDataDaily:
-                          globalController.getData().getdailyWeather(),
+                  )
+                : Center(
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        const SizedBox(height: 20),
+                        const HeaderWidget(),
+                        CurrentWeatherWidget(
+                            weatherDataCurrent:
+                                globalController.getData().getCurrentWeather()),
+                        HourlyDataWidget(
+                          weatherDataHourly:
+                              globalController.getData().getHourlyWeather(),
+                        ),
+                        DailyDataForecast(
+                          weatherDataDaily:
+                              globalController.getData().getdailyWeather(),
+                        ),
+                        Container(
+                          height: 1,
+                          color: CustomColor.dividerLine,
+                        ),
+                        const SizedBox(height: 10),
+                        comfortLevelWidget(
+                            weatherDataCurrent:
+                                globalController.getData().getCurrentWeather()),
+                      ],
                     ),
-                    Container(
-                      height: 1,
-                      color: CustomColor.dividerLine,
-                    ),
-                    const SizedBox(height: 10),
-                    comfortLevelWidget(
-                        weatherDataCurrent:
-                            globalController.getData().getCurrentWeather()),
-                  ],
-                ),
-              ),
-      ),
-    ));
+                  ),
+          ),
+        ));
   }
 }

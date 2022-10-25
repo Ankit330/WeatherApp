@@ -43,7 +43,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               decoration: BoxDecoration(
                   color: CustomColor.cardColor,
                   borderRadius: BorderRadius.circular(15)),
-              child: Image.asset("assets/icons/clouds.png"),
+              child: Image.asset("assets/icons/cloud.png"),
             ),
             Container(
               height: 60,
