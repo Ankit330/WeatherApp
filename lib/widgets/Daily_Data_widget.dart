@@ -71,7 +71,7 @@ class DailyDataForecast extends StatelessWidget {
                             'assets/weather/${weatherDataDaily.daily[index].weather![0].icon}.png'),
                       ),
                       const SizedBox(height: 20),
-                      Container(
+                      SizedBox(
                         width: 50,
                         child: Text(
                             '${weatherDataDaily.daily[index].temp!.max}°/${weatherDataDaily.daily[index].temp!.min}°'),
